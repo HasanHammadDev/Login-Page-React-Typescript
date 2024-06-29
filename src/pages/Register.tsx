@@ -65,68 +65,71 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="bg-blue-200 h-screen flex justify-center items-center">
-      <Form className="bg-gray-100 shadow flex flex-col border rounded m-1 p-10" onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label className="m-1">Email</Form.Label>
-          <Form.Control
-            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange('email', e.target.value)}
-            type="email"
-            placeholder="Enter Email"
-            value={inputs.email}
-          />
-        </Form.Group>
+<div className="bg-gradient-to-r from-blue-200 to-blue-500 h-screen flex justify-center items-center p-4">
+  <Form className="bg-white shadow-lg flex flex-col border rounded-lg p-8 w-full max-w-md" onSubmit={handleSubmit}>
+    <Form.Group className="mb-4" controlId="formBasicEmail">
+      <Form.Label className="mb-2 text-gray-700">Email</Form.Label>
+      <Form.Control
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange('email', e.target.value)}
+        type="email"
+        placeholder="Enter Email"
+        value={inputs.email}
+        className="border rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label className="m-1">Password</Form.Label>
-          <Form.Control
-            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange('password', e.target.value)}
-            type="password"
-            placeholder="Enter Password"
-            value={inputs.password}
-          />
-        </Form.Group>
+    <Form.Group className="mb-4" controlId="formBasicPassword">
+      <Form.Label className="mb-2 text-gray-700">Password</Form.Label>
+      <Form.Control
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange('password', e.target.value)}
+        type="password"
+        placeholder="Enter Password"
+        value={inputs.password}
+        className="border rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-          <Form.Label className="m-1">Confirm Password</Form.Label>
-          <Form.Control
-            onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange('confirmPassword', e.target.value)}
-            type="password"
-            placeholder="Confirm Password"
-            value={inputs.confirmPassword}
-          />
-        </Form.Group>
+    <Form.Group className="mb-4" controlId="formBasicConfirmPassword">
+      <Form.Label className="mb-2 text-gray-700">Confirm Password</Form.Label>
+      <Form.Control
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange('confirmPassword', e.target.value)}
+        type="password"
+        placeholder="Confirm Password"
+        value={inputs.confirmPassword}
+        className="border rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+    </Form.Group>
 
-        <div className='mb-1'>
-          <ul className="text-gray-600 flex flex-col items-start">
-            <li className="flex items-center">
-              {passwordCriteria.minLength && <Checkmark size='small' />}
-              <span className="ml-2">At least 8 characters</span>
-            </li>
-            <li className="flex items-center">
-              {passwordCriteria.hasUpperCase && <Checkmark size='small' />}
-              <span className="ml-2">At least one uppercase letter</span>
-            </li>
-            <li className="flex items-center">
-              {passwordCriteria.hasLowerCase && <Checkmark size='small' />}
-              <span className="ml-2">At least one lowercase letter</span>
-            </li>
-            <li className="flex items-center">
-              {passwordCriteria.hasNumber && <Checkmark size='small' />}
-              <span className="ml-2">At least one number</span>
-            </li>
-            <li className="flex items-center">
-              {passwordCriteria.hasSpecialChar && <Checkmark size='small' />}
-              <span className="ml-2">At least one special character</span>
-            </li>
-          </ul>
-        </div>
-
-        {errorMsg && <div className="text-red-500 mb-3 font-semibold text-center">{errorMsg}</div>}
-
-        <Button className='mt-1' variant="primary" type="submit">Register</Button>
-      </Form>
+    <div className='mb-2'>
+      <ul className="text-gray-600 flex flex-col items-start space-y-1">
+        <li className="flex items-center">
+          {passwordCriteria.minLength && <Checkmark size='small' />}
+          <span className="ml-2">At least 8 characters</span>
+        </li>
+        <li className="flex items-center">
+          {passwordCriteria.hasUpperCase && <Checkmark size='small' />}
+          <span className="ml-2">At least one uppercase letter</span>
+        </li>
+        <li className="flex items-center">
+          {passwordCriteria.hasLowerCase && <Checkmark size='small' />}
+          <span className="ml-2">At least one lowercase letter</span>
+        </li>
+        <li className="flex items-center">
+          {passwordCriteria.hasNumber && <Checkmark size='small' />}
+          <span className="ml-2">At least one number</span>
+        </li>
+        <li className="flex items-center">
+          {passwordCriteria.hasSpecialChar && <Checkmark size='small' />}
+          <span className="ml-2">At least one special character</span>
+        </li>
+      </ul>
     </div>
+
+    {errorMsg && <div className="text-red-500 mb-1 font-semibold text-center">{errorMsg}</div>}
+
+    <Button className='mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg' variant="primary" type="submit">Register</Button>
+  </Form>
+</div>
   );
 };
 
