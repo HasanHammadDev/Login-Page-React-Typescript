@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Login() {
     const registerRoute: string = '/register';
+
+
     return (
         <div className="bg-blue-200 h-screen flex justify-center items-center">
             <Form className="bg-gray-100 shadow flex flex-col border rounded m-1 p-10">
@@ -26,7 +28,7 @@ export default function Login() {
                 </Form.Group>
                 
                 <Button variant="primary" type="submit">Login</Button>
-                <Link className="mt-1 text-xs underline text-blue-500 hover:text-blue-900" to={registerRoute}>Register New Account</Link>
+                <p className="mt-2">Don't have an account? <Link className="mt-2 text-s underline text-blue-500 hover:text-blue-900" to={registerRoute}>Register New Account</Link></p>
             </Form>
         </div>
     );
