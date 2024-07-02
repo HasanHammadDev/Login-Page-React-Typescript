@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Checkmark } from 'react-checkmark';
+import { Link } from "react-router-dom";
 
 interface Inputs {
   email: string;
@@ -10,6 +11,7 @@ interface Inputs {
 }
 
 const Register: React.FC = () => {
+  const loginRoute: string = '/';
   const [inputs, setInputs] = useState<Inputs>({
     email: '',
     password: '',
@@ -127,7 +129,14 @@ const Register: React.FC = () => {
 
     {errorMsg && <div className="text-red-500 mb-1 font-semibold text-center">{errorMsg}</div>}
 
-    <Button className='mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg' variant="primary" type="submit">Register</Button>
+    <Button className='mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg' variant="primary" type="submit">Register</Button>
+
+    <p className="text-gray-600 text-center mt-3">
+          Already have an account?{" "}
+          <Link to={loginRoute} className="text-blue-500 hover:text-blue-900 underline">
+            Back To Login
+          </Link>
+        </p>
   </Form>
 </div>
   );
