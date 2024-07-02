@@ -2,21 +2,21 @@ import axios from 'axios';
 
 let apiEndpoint = import.meta.env.VITE_REACT_APP_API_ENDPOINT as string;
 
-
-type Account = {
-    username: string;
+type LoginCredentials = {
     email: string;
     password: string;
 };
 
-// Register an account
-async function registerAccount(account: Account) {
+// Login with credentials
+async function login(credentials: LoginCredentials) {
     try {
-        let response = await axios.post(`${apiEndpoint}/register`, account, {
+
+        const response = await axios.post(`${apiEndpoint}/login`, credentials, {
+            withCredentials: true,
             headers: {
-                'Content-Type': 'application/json'
+              'Content-Type': 'application/json'
             }
-        });
+          });
 
         return response.data;
     } catch (error) {
@@ -30,4 +30,4 @@ async function registerAccount(account: Account) {
     }
 }
 
-export default registerAccount;
+export default login;

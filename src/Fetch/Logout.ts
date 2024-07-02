@@ -1,8 +1,6 @@
 import axios from "axios";
-import dotenv from 'dotenv';
 
-dotenv.config();
-let apiEndpoint = process.env.API_ENDPOINT;
+let apiEndpoint = import.meta.env.VITE_REACT_APP_API_ENDPOINT as string;
 
 export default async function Logout() {
     try {
