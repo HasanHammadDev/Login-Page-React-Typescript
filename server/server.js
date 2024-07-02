@@ -1,7 +1,7 @@
 import express from 'express';
 import connectDB from './connectDB.js';
-import authRoutes from './routes/authRoutes.js';
-import editRoute from './routes/editRoute.js';
+import loginRoute from './routes/loginRoute.js';
+import profileRoute from './routes/profileRoute.js';
 import registerRoute from './routes/registerRoute.js';
 import cors from 'cors';
 import authJwtCookie from './JWT/cookieJwtAuth.js';
@@ -23,10 +23,16 @@ app.use(cors(corsOptions));
 // Connecting to database
 connectDB();
 
-//Register user route
+//Routes
 app.use('/register', registerRoute)
-app.use('/auth', authRoutes);
-app.use('/edit', authJwtCookie, editRoute);
+app.use('/login', loginRoute);
+app.use('/profile', authJwtCookie, profileRoute);
+
+app.post('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.status(200).send({ success: true });
+});
+
 
 
 // Error handling middleware
