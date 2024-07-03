@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Logout from "../Fetch/logout";
 
-export default function Profile() {
+const Profile: React.FC = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export default function Profile() {
             }
         }
         getProfile();
-    }, []);
+    }, [navigate]);
 
     const handleLogout = async () => {
         await Logout();
@@ -29,3 +29,5 @@ export default function Profile() {
         </div>
     );
 }
+
+export default Profile;

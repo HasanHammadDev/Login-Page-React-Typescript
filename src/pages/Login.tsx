@@ -9,7 +9,7 @@ interface Credentials {
   password: string;
 }
 
-export default function Login() {
+const Login: React.FC = () => {
   const registerRoute: string = '/register';
   const [credentials, setCredentials] = useState<Credentials>({
     email: '',
@@ -90,3 +90,5 @@ export default function Login() {
     </div>
   );
 }
+
+export default Login;
