@@ -6,13 +6,14 @@ This project is a secure login and registration system built using React with Ty
 
 ## Screenshots
 JWT is stored in a cookie
-![JWT Screenshot](https://i.ibb.co/ChSKqV1/Screenshot-2024-07-04-213225.png)
+![JWT Cookie Screenshot](https://i.ibb.co/ChSKqV1/Screenshot-2024-07-04-213225.png)
 
 Backend Registeration Validation
-![JWT Screenshot](https://i.ibb.co/fMyH7sH/backend-valid.png)
+![Backend Registeration Screenshot](https://i.ibb.co/fMyH7sH/backend-valid.png)
 
 JWT Authentication Validation
-![JWT Screenshot](https://i.ibb.co/P4qCfyH/jwt-middlewar.png)
+
+![JWT Auth Screenshot](https://i.ibb.co/P4qCfyH/jwt-middlewar.png)
 
 
 ## Installation
