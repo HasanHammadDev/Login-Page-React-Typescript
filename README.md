@@ -1,30 +1,57 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Login/Register (JWT & bcrypt)
 
-Currently, two official plugins are available:
+This project is a secure login and registration system built using React with TypeScript for the frontend and Node.js with Express for the backend. It utilizes bcrypt for password hashing and JWT (JSON Web Token) for authentication, ensuring security for user credentials and sessions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Screenshots
+JWT is stored in a cookie
+![JWT Screenshot](https://i.ibb.co/ChSKqV1/Screenshot-2024-07-04-213225.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Backend Registeration Validation
+![JWT Screenshot](https://i.ibb.co/fMyH7sH/backend-valid.png)
 
-- Configure the top-level `parserOptions` property like this:
+JWT Authentication Validation
+![JWT Screenshot](https://i.ibb.co/P4qCfyH/jwt-middlewar.png)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+## Installation
+
+Install my-project with npm
+
+### Backend
+```bash 
+  git clone https://github.com/HasanHammadDev/Login-Page-React-Typescript.git
+  cd Login-Page-React-Typescript
+  cd server
+  npm install
+  node server
+```
+### Frontend
+```bash 
+  cd Login-Page-React-Typescript
+  npm install
+  npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+    
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file in the server directory.
+
+`VITE_REACT_APP_API_ENDPOINT`=YOUR_APP_API_ENDPOINT
+
+And you will need to add the following environment variables to your .env file in the server directory.
+
+`PORT`=3000
+
+`URI`=your_mongodb_connection_string
+
+`JWT_SECRET`=YOUR_JWT_SECRET
+
+
+## Contributing
+
+Contributions are always welcome!
+
+
