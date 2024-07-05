@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import fetchProfile from "../Fetch/fetchProfile";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Logout from "../Fetch/logout";
+import Logout from "../Fetch/Logout";
 
 const Profile: React.FC = () => {
     const navigate = useNavigate();
