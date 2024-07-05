@@ -19,14 +19,14 @@ router.post("/", validateRegistration, async (req, res) => {
     let existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ success: false, message: "User already exists" });
     }
 
     // Create a new user with plain password
     const newUser = new User({ email, password, username });
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ success: true, message: "User registered successfully" });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ success: false, message: "Server error" });
