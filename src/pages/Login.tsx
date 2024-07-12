@@ -9,12 +9,18 @@ interface Credentials {
   password: string;
 }
 
+interface LoginResponse {
+  success: boolean;
+  message: string;
+}
+
 const Login: React.FC = () => {
   const registerRoute: string = '/register';
   const [credentials, setCredentials] = useState<Credentials>({
     email: '',
     password: '',
   });
+  const [errorMsg, setErrorMsg] = useState<string>('');
   const navigate = useNavigate();
 
 
@@ -30,14 +36,15 @@ const Login: React.FC = () => {
     event.preventDefault();
 
     try{
-      const response = await login(credentials);
+      const response: LoginResponse = await login(credentials);
 
       if(response.success) {
-        //Redirect user to /welcome
+        //Redirect user to profile
         navigate('/profile');
       }
+      setErrorMsg(response.message)
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
 
   }
@@ -73,12 +80,14 @@ const Login: React.FC = () => {
         </Form.Group>
 
         <Button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mb-4"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mb-2"
           variant="primary"
           type="submit"
         >
           Login
         </Button>
+
+        {errorMsg && <div className="text-red-500 font-semibold text-center">{errorMsg}</div>}
 
         <p className="text-gray-600 text-center">
           Don't have an account?{" "}

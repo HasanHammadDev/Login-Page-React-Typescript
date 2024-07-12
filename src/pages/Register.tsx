@@ -74,7 +74,6 @@ const Register: React.FC = () => {
 
     try {
       const response: RegisterResponse = await registerAccount(inputs);
-      console.log(response)
       if (!validatePassword()) {
         setErrorMsg('Password must meet all criteria.');
       } else if (inputs.password !== inputs.confirmPassword) {

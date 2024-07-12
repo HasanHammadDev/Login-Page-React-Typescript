@@ -7,6 +7,11 @@ type LoginCredentials = {
     password: string;
 };
 
+interface LoginResponse {
+    success: boolean;
+    message: string;
+  }
+
 // Login with credentials
 async function login(credentials: LoginCredentials) {
     try {
@@ -18,14 +23,14 @@ async function login(credentials: LoginCredentials) {
             }
           });
 
-        return response.data;
+        return response.data as LoginResponse;
     } catch (error) {
         if (axios.isAxiosError(error)) {
             console.error('There was an error with the request:', error.response);
-            return error.response?.data;
+            return error.response?.data as LoginResponse;
         } else {
             console.error('An unexpected error occurred:', error);
-            return error;
+            throw error;
         }
     }
 }
