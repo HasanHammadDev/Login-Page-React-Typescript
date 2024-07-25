@@ -42,7 +42,7 @@ To run this project, you will need to add the following environment variables to
 
 `VITE_REACT_APP_API_ENDPOINT`=YOUR_APP_API_ENDPOINT
 
-And you will need to add the following environment variables to your .env file in the server directory.
+And you will need to add the following environment variables to your .env file in the root directory.
 
 `PORT`=3000
 
